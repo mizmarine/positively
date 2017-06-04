@@ -1,10 +1,6 @@
-PYENV:=`which pyenv`
+.PHONY: install run
 
 install:
-	$(PYENV) install 3.6.0
-
-init:
-	$(PYENV) virtualenv 3.6.0 positively
 	pip install -r requirements.txt -c constraints.txt
 
 update_lib:
