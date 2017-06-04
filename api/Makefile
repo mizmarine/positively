@@ -6,3 +6,6 @@ init:
 
 install:
 	$(PYENV) install 3.6.0
+
+run:
+	python lib/app.py
