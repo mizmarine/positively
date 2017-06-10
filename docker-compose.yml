@@ -1,6 +1,21 @@
 version: '2'
 services:
+  db:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: positivery
+      MYSQL_USER: positivery
+      MYSQL_PASSWORD: positivery
+      MYSQL_ROOT_PASSWORD: secret
+    volumes:
+     - ./db/config:/etc/mysql/conf.d:ro
+     - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
   api:
     build: api
+    volumes:
+     - ./api:/positivery/api:ro
     ports:
+     - "80:80"
      - "8080:8080"
+    links:
+      - db

@@ -9,3 +9,6 @@ update_lib:
 
 run:
 	python app.py
+
+echo:
+	echo 'hello'
