@@ -4,6 +4,9 @@ DOCKER_COMPOSE:=`which docker-compose`
 up:
 	$(DOCKER_COMPOSE) up
 
+build:
+	$(DOCKER_COMPOSE) build
+
 down:
 	$(DOCKER_COMPOSE) down
 
