@@ -10,6 +10,12 @@ build:
 down:
 	$(DOCKER_COMPOSE) down
 
+stop:
+	$(DOCKER_COMPOSE) stop
+
+restart:
+	$(DOCKER_COMPOSE) restart
+
 ssh:
 	docker exec -it positivery_api_1 /bin/bash
 

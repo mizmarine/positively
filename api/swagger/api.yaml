@@ -1,10 +1,10 @@
 swagger: '2.0'
 info:
   version: 1.0.0
-  title: positively
+  title: positivery
 schemes:
   - http
-host: dev.positively:8080
+host: dev.positivery:8080
 basePath: /api
 consumes:
   - application/json
@@ -17,3 +17,5 @@ paths:
       responses:
         200:
           description: simple hello
+          schema:
+            type: string
