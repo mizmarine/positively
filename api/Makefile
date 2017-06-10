@@ -2,7 +2,8 @@
 
 install:
 	pip install -r requirements.txt -c constraints.txt
-	pip freeze
+	pip freeze > /tmp/after.txt
+	diff -u constraints.txt /tmp/after.txt
 
 run:
 	python app.py
