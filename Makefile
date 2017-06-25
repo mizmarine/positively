@@ -1,20 +1,8 @@
 .PHONY: up db
 DOCKER_COMPOSE:=`which docker-compose`
 
-up:
-	$(DOCKER_COMPOSE) up
-
-build:
-	$(DOCKER_COMPOSE) build
-
-down:
-	$(DOCKER_COMPOSE) down
-
-stop:
-	$(DOCKER_COMPOSE) stop
-
-restart:
-	$(DOCKER_COMPOSE) restart
+docker/%:
+	$(DOCKER_COMPOSE) $*
 
 ssh:
 	docker exec -it positivery_api_1 /bin/bash
