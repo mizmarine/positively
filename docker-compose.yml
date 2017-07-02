@@ -1,6 +1,7 @@
 version: '2'
 services:
   db:
+    container_name: positivery_db
     image: mysql
     environment:
       MYSQL_DATABASE: positivery
@@ -11,11 +12,19 @@ services:
      - ./db/config:/etc/mysql/conf.d:ro
      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
   api:
+    container_name: positivery_api
     build: api
     volumes:
      - ./api:/positivery/api:ro
     ports:
-     - "80:80"
      - "8080:8080"
     links:
       - db
+  ui:
+    container_name: positivery_ui
+    build: ui
+    ports:
+     - "80:80"
+    volumes:
+      - ./ui/index.html:/usr/share/nginx/html/index.html:ro
+      - ./ui/nginx.conf:/etc/nginx/conf.d/default.conf:ro
