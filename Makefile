@@ -1,14 +1,15 @@
 .PHONY: up db
 DOCKER_COMPOSE:=`which docker-compose`
+DOCKER_COMPOSE_FILE:='-f docker-compose.yml'
 
 docker/%:
-	$(DOCKER_COMPOSE) $*
+	$(DOCKER_COMPOSE) $(DOCKER_COMPOSE_FILES) $*
 
 ssh:
-	docker exec -it positivery_api_1 /bin/bash
+	$(DOCKER_COMPOSE) $(DOCKER_COMPOSE_FILES) exec api /bin/bash
 
 db:
-	docker exec -it positivery_db_1 mysql -uroot -psecret
+	$(DOCKER_COMPOSE) $(DOCKER_COMPOSE_FILES) exec db mysql -uroot -psecret
 
 api_test:
 	curl localhost:8080/api/hello
