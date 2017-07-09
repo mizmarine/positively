@@ -1,4 +1,4 @@
-.PHONY: up db
+.PHONY: db
 DOCKER_COMPOSE:=`which docker-compose`
 DOCKER_COMPOSE_FILE:='-f docker-compose.yml'
 
