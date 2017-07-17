@@ -16,8 +16,11 @@ services:
     build: api
     volumes:
      - ./api:/positivery/api:ro
+     - ./api/nginx.conf:/etc/nginx/conf.d/nginx.conf:ro
+     - ./api/uwsgi.ini:/etc/uwsgi/uwsgi.ini:ro
+     - ./api/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     ports:
-     - "8080:8080"
+     - "8080:80"
     links:
       - db
 networks:
