@@ -2,6 +2,7 @@ swagger: '2.0'
 info:
   version: 1.0.0
   title: positivery
+  description: positivery web api
 schemes:
   - http
 host: dev.positivery:8080
@@ -18,4 +19,11 @@ paths:
         200:
           description: simple hello
           schema:
-            type: string
+            type: object
+            required:
+              - message
+            properties:
+              message:
+                type: string
+            example:
+              message: hello
