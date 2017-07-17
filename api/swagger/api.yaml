@@ -15,6 +15,11 @@ paths:
   /hello:
     get:
       operationId: api.hello.get
+      parameters:
+        - name: name
+          type: string
+          in: query
+          required: true
       responses:
         200:
           description: simple hello
