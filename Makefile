@@ -1,4 +1,5 @@
 .PHONY: db
+DOCKER:=`which docker`
 DOCKER_COMPOSE:=`which docker-compose`
 DOCKER_COMPOSE_FILE:='-f docker-compose.yml'
 
@@ -13,3 +14,6 @@ db:
 
 api_test:
 	curl localhost:8080/api/hello
+
+init:
+	$(DOCKER) network create -d bridge positivery
