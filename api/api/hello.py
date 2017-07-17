@@ -1,4 +1,4 @@
 # -*- coding: utf-8 -*-
 
-def get():
-    return {'message': 'hello world'}
+def get(name):
+    return {'message': 'hello, {}'.format(name)}
